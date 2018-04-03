@@ -24,7 +24,7 @@ def sections(request):
     
     template = loader.get_template('crms/sections.html')
     context = {
-        
+            'sections':True
         }
     return HttpResponse(template.render(context, request))
 
@@ -45,7 +45,7 @@ def addcompany(request):
     if request.method == 'POST':
         form = CompanyNameForm(request.POST)
         if form.is_valid():
-            Company.objects.create(company_name = form.data['company_name'])
+            Company.objects.create(company_name = form.data['company_name'], company_contact = form.data['company_contact'])
             template = loader.get_template('crms/addcompany.html')
             context = {}
             return redirect('companies')
