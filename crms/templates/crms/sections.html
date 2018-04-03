@@ -46,9 +46,12 @@
       
 
       <div class="basic-template">
-        <h1>SECTIONS</h1>
-        
-        
+        {% if sections %}
+          <h1>Sections<h1>
+          <p class = "lead">
+            Choose 'Companies' or 'Users' in the NavBar
+          </p>
+        {% endif %}
         
         {% block content %}
         {% endblock %}
